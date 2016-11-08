@@ -1,52 +1,33 @@
 ```python
 import threading
-
 import os
-
 from os import system
-
 import curses
-
 import locale
-
 import time
-
 import threading
-
 import random
-
 import json
-
 import struct
 
-
-
 screenLock = threading.Lock()
-
 waiter = threading.Lock()
-
 global count
-
 count = 0
-
 
 """
 Location object to help the Curses Window class
 """
-
 class Cell(object):
 
     def __init__(self,row=0,col=0):
         self.row = row
         self.col = col
-
 		
 """
 Curses Window wrapper to help with printing to the screen
 """
-
-class CursesWindow(object):
-      
+class CursesWindow(object):     
     def __init__(self):
         self.screen = curses.initscr()
 
@@ -137,7 +118,6 @@ forks = []
 screenLock = threading.Lock()
 
 class Philosopher(threading.Thread):
-
     def __init__(self, index,window,cell):
         threading.Thread.__init__(self)
         self.index = index
@@ -176,7 +156,6 @@ class Philosopher(threading.Thread):
             waiter.release()
 
 class ForkPair:
-
     def __init__(self, leftForkIndex, rightForkIndex):
         # Order forks by index to prevent deadlock
         if leftForkIndex > rightForkIndex:
@@ -196,7 +175,6 @@ class ForkPair:
         self.secondFork.release()
 
 if __name__ == "__main__":
-
     screenLock = threading.Lock()
     window = CursesWindow()
     row = 5

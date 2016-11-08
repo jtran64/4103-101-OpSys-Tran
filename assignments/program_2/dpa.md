@@ -19,15 +19,15 @@ count = 0
 Location object to help the Curses Window class
 """
 class Cell(object):
-
     def __init__(self,row=0,col=0):
         self.row = row
         self.col = col
-		
+
 """
 Curses Window wrapper to help with printing to the screen
 """
-class CursesWindow(object):     
+class CursesWindow(object):
+      
     def __init__(self):
         self.screen = curses.initscr()
 
@@ -112,7 +112,6 @@ numPhilosophers = 4
 # Lists to hold the philosophers and the forks.
 # Philosophers are threads while forks are locks.
 philosophers = []
-
 forks = []
 
 screenLock = threading.Lock()
@@ -175,6 +174,7 @@ class ForkPair:
         self.secondFork.release()
 
 if __name__ == "__main__":
+
     screenLock = threading.Lock()
     window = CursesWindow()
     row = 5

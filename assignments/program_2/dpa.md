@@ -19,6 +19,7 @@ import json
 import struct
 
 
+
 screenLock = threading.Lock()
 
 waiter = threading.Lock()
@@ -27,15 +28,18 @@ global count
 
 count = 0
 
+
 """
 Location object to help the Curses Window class
 """
 
 class Cell(object):
+
     def __init__(self,row=0,col=0):
         self.row = row
         self.col = col
 
+		
 """
 Curses Window wrapper to help with printing to the screen
 """

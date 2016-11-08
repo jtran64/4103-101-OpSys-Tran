@@ -1,3 +1,4 @@
+```python
 import threading
 
 import os
@@ -138,7 +139,6 @@ screenLock = threading.Lock()
 class Philosopher(threading.Thread):
 
     def __init__(self, index,window,cell):
-	
         threading.Thread.__init__(self)
         self.index = index
         self.window = window
@@ -147,7 +147,6 @@ class Philosopher(threading.Thread):
         
 
     def run(self):
-	
         global count
         # Assign left and right fork
         leftForkIndex = self.index
@@ -179,7 +178,6 @@ class Philosopher(threading.Thread):
 class ForkPair:
 
     def __init__(self, leftForkIndex, rightForkIndex):
-	
         # Order forks by index to prevent deadlock
         if leftForkIndex > rightForkIndex:
             leftForkIndex, rightForkIndex = rightForkIndex, leftForkIndex
@@ -218,3 +216,4 @@ if __name__ == "__main__":
         while True: time.sleep(0.1)
     except (KeyboardInterrupt, SystemExit):
         os._exit(0)
+```
